@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-label="Voltloop">
+  <rect width="180" height="180" rx="40" fill="#0b65d6"/>
+  <path d="M104 18 L48 102 H82 L70 162 L132 68 H93 Z"
+        fill="#ffd400"
+        stroke="#0b65d6"
+        stroke-width="3"
+        stroke-linejoin="round"/>
+</svg>
