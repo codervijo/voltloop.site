@@ -1,7 +1,34 @@
-node_modules/
-dist/
-.astro/
-.env
-.env.*
-.DS_Store
+# Logs
+logs
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Reference scaffold from Lovable — kept for reference, not part of build
+genai/
+
+# Stale Astro build dir from earlier scaffold attempt
+.astro/
+
+# Bun lockfiles — this project uses pnpm
+bun.lock
+bun.lockb
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
