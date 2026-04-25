@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://voltloop.site/sitemap-index.xml

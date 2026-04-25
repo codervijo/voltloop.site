@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Calculator from '../components/Calculator.jsx';
+---
+<BaseLayout
+  title="Tesla Supercharger Cost per kWh | Voltloop"
+  description="Tesla Supercharger pricing explained. Compare Supercharger cost vs home charging and estimate a typical Supercharger session."
+>
+  <h1>Tesla Supercharger cost</h1>
+  <p class="lede">
+    Tesla Supercharger pricing in the U.S. typically ranges from <strong>$0.25 to $0.50/kWh</strong>,
+    averaging around <strong>$0.36/kWh</strong>. Off-peak rates can be 30–50% lower at
+    many sites.
+  </p>
+
+  <h2>Supercharger vs home charging</h2>
+  <table class="compare">
+    <thead>
+      <tr>
+        <th>Charging type</th>
+        <th>Typical $/kWh</th>
+        <th>Cost for 50 kWh</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Home Level 2</td><td>$0.16</td><td>$8.00</td></tr>
+      <tr><td>Public Level 2</td><td>$0.20–$0.30</td><td>$10–$15</td></tr>
+      <tr><td>Tesla Supercharger</td><td>$0.25–$0.50</td><td>$12.50–$25.00</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Estimate a Supercharger session</h2>
+  <p>
+    The calculator below is preset for a typical Supercharger road-trip stop: a 75 kWh
+    Model 3 going from 10% to 80% at $0.36/kWh.
+  </p>
+
+  <Calculator
+    client:load
+    batterySize={75}
+    currentPercent={10}
+    targetPercent={80}
+    ratePerKwh={0.36}
+    chargerType="Supercharger"
+  />
+
+  <h2>How to lower Supercharger cost</h2>
+  <ul class="related">
+    <li>Charge to 80%, not 100% — the last 20% is the slowest and most expensive per minute.</li>
+    <li>Use off-peak hours where available (often before 11am and after 9pm).</li>
+    <li>Consider a Supercharger membership if you fast-charge frequently.</li>
+    <li>Charge at home overnight whenever possible — see the <a href="/ev-charging-cost-calculator">general calculator</a>.</li>
+  </ul>
+
+  <p>
+    Vehicle-specific examples: <a href="/tesla-model-3-charging-cost">Model 3</a>,
+    <a href="/tesla-model-y-charging-cost">Model Y</a>,
+    <a href="/tesla-model-s-charging-cost">Model S</a>.
+  </p>
+</BaseLayout>

@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Calculator from '../components/Calculator.jsx';
+---
+<BaseLayout
+  title="EV Charging Cost Calculator | Voltloop"
+  description="Free EV charging cost calculator. Estimate the real cost to charge any electric vehicle at home, work, or on a DC fast charger."
+>
+  <h1>EV Charging Cost Calculator</h1>
+  <p class="lede">
+    The average U.S. home rate is around <strong>$0.16/kWh</strong>. A typical 60 kWh
+    top-up from 20% to 80% works out to roughly <strong>$5–$10</strong> at home, or
+    <strong>$15–$25</strong> on a DC fast charger.
+  </p>
+
+  <Calculator client:load />
+
+  <h2>Why home charging is almost always cheapest</h2>
+  <p>
+    Home Level 2 charging at residential rates is consistently cheaper per kWh than DC fast
+    charging. Public DC fast chargers — including Tesla Superchargers — typically run
+    <strong>$0.30–$0.50/kWh</strong>, two to three times the cost of charging in your garage.
+  </p>
+
+  <h2>Inputs that drive the cost</h2>
+  <ul class="related">
+    <li><strong>Battery size</strong> — bigger battery, more kWh to fill.</li>
+    <li><strong>Current vs target %</strong> — most daily charging is a partial top-up, not 0→100%.</li>
+    <li><strong>Rate ($/kWh)</strong> — varies by utility, plan, and time of day.</li>
+    <li><strong>Charger type</strong> — affects how long the session takes, not the energy delivered.</li>
+  </ul>
+
+  <p>
+    See specific vehicle examples like the
+    <a href="/tesla-model-3-charging-cost">Tesla Model 3</a> or compare to the
+    <a href="/tesla-supercharger-cost">Tesla Supercharger network</a>.
+  </p>
+</BaseLayout>

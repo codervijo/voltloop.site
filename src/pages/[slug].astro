@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Calculator from '../components/Calculator.jsx';
+import pages from '../lib/pages.json';
+
+export function getStaticPaths() {
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page }
+  }));
+}
+
+const { page } = Astro.props;
+const related = pages.filter((p) => p.slug !== page.slug).slice(0, 6);
+---
+<BaseLayout title={`${page.title} | Voltloop`} description={page.description}>
+  <h1>{page.h1 || page.title}</h1>
+  <p class="lede">{page.directAnswer}</p>
+
+  <Calculator
+    client:load
+    batterySize={page.batterySize}
+    currentPercent={page.currentPercent}
+    targetPercent={page.targetPercent}
+    ratePerKwh={page.ratePerKwh}
+    chargerType={page.chargerType}
+  />
+
+  <h2>About this estimate</h2>
+  <p>
+    This calculator is preset with the typical battery size and a U.S. average
+    home rate of $0.16/kWh for the {page.vehicle}. Adjust the inputs above to match your
+    car's real battery, your local electricity rate, and the type of charger you use.
+  </p>
+
+  <h2>Related calculators</h2>
+  <ul class="related">
+    <li><a href="/ev-charging-cost-calculator">General EV charging cost calculator</a></li>
+    <li><a href="/tesla-model-3-charging-cost">Tesla Model 3 charging cost</a></li>
+    <li><a href="/tesla-supercharger-cost">Tesla Supercharger cost</a></li>
+    {related.map((p) => (
+      <li><a href={`/${p.slug}`}>{p.title}</a></li>
+    ))}
+  </ul>
+</BaseLayout>

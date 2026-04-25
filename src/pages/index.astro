@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Calculator from '../components/Calculator.jsx';
+import pages from '../lib/pages.json';
+---
+<BaseLayout
+  title="Voltloop — EV Charging Cost Calculator"
+  description="Free EV charging cost calculator. Estimate the real cost to charge any electric vehicle at home, work, or a Supercharger."
+>
+  <h1>How much does it cost to charge an EV?</h1>
+  <p class="lede">
+    Use the calculator below to estimate your real EV charging cost based on battery size,
+    state of charge, electricity rate, and charger type.
+  </p>
+
+  <Calculator client:load />
+
+  <h2>Popular vehicle calculators</h2>
+  <ul class="related">
+    <li><a href="/tesla-model-3-charging-cost">Tesla Model 3 charging cost</a></li>
+    {pages.map((p) => (
+      <li><a href={`/${p.slug}`}>{p.title}</a></li>
+    ))}
+  </ul>
+
+  <h2>How EV charging cost is calculated</h2>
+  <p>
+    Charging cost is just the energy you put into the battery times the price you pay per
+    kilowatt-hour. The energy required depends on your battery size and how full it already
+    is.
+  </p>
+  <p>
+    <strong>Cost = Battery (kWh) × (Target% − Current%) ÷ 100 × Rate ($/kWh)</strong>
+  </p>
+  <p>
+    Compare the average U.S. home rate (~$0.16/kWh) to typical Supercharger pricing on the
+    <a href="/tesla-supercharger-cost">Tesla Supercharger cost</a> page.
+  </p>
+</BaseLayout>
