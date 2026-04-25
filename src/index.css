@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Voltloop — Electric Mint design system. All colors HSL. */
+
+@layer base {
+  :root {
+    --background: 213 50% 8%;
+    --foreground: 150 30% 96%;
+
+    --card: 213 45% 11%;
+    --card-foreground: 150 30% 96%;
+
+    --popover: 213 45% 11%;
+    --popover-foreground: 150 30% 96%;
+
+    --primary: 165 75% 50%;
+    --primary-foreground: 213 60% 8%;
+    --primary-glow: 150 100% 73%;
+
+    --secondary: 156 50% 18%;
+    --secondary-foreground: 150 60% 92%;
+
+    --muted: 213 30% 16%;
+    --muted-foreground: 200 15% 65%;
+
+    --accent: 150 100% 73%;
+    --accent-foreground: 213 60% 8%;
+
+    --destructive: 0 75% 58%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 213 30% 18%;
+    --input: 213 30% 16%;
+    --ring: 165 75% 50%;
+
+    --radius: 0.875rem;
+
+    /* Voltloop semantic tokens */
+    --surface: 213 40% 13%;
+    --surface-elevated: 213 35% 16%;
+    --hairline: 213 30% 22%;
+
+    --gradient-hero: radial-gradient(ellipse at top, hsl(156 60% 18% / 0.8), transparent 60%),
+      linear-gradient(180deg, hsl(213 50% 8%), hsl(213 55% 6%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-card: linear-gradient(180deg, hsl(213 40% 13%), hsl(213 45% 10%));
+    --gradient-glow: radial-gradient(circle at 50% 0%, hsl(165 75% 50% / 0.25), transparent 70%);
+
+    --shadow-glow: 0 0 60px -10px hsl(var(--primary) / 0.45);
+    --shadow-soft: 0 10px 40px -20px hsl(213 80% 4% / 0.8);
+    --shadow-elevated: 0 20px 60px -24px hsl(213 90% 3% / 0.9);
+
+    --transition-base: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 213 45% 10%;
+    --sidebar-foreground: 150 20% 88%;
+    --sidebar-primary: 165 75% 50%;
+    --sidebar-primary-foreground: 213 60% 8%;
+    --sidebar-accent: 213 35% 16%;
+    --sidebar-accent-foreground: 150 30% 96%;
+    --sidebar-border: 213 30% 18%;
+    --sidebar-ring: 165 75% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'ss01', 'cv11';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .surface-card {
+    background: var(--gradient-card);
+    border: 1px solid hsl(var(--hairline));
+    box-shadow: var(--shadow-soft);
+  }
+
+  .glow-ring {
+    box-shadow: var(--shadow-glow);
+  }
+}
