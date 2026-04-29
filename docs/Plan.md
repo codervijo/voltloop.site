@@ -71,10 +71,10 @@ Pre-built PNG per slug at deploy time. Pattern from `calcengine/src/og/renderOg.
 
 | # | Feature | Why | Effort | Status |
 |---|---|---|---|---|
-| 3.1 | Add `satori` + `@resvg/resvg-js` build script: input slug, output `dist/og/{slug}.png` | Branded social preview per page | M | Planned |
-| 3.2 | Bundled Inter/Space Grotesk font for Satori | Consistent typography | S | Planned |
-| 3.3 | Per-page `og:image` meta points to `/og/{slug}.png` | X/LinkedIn previews | S | Planned |
-| 3.4 | Replace Lovable-default `og:image` and `twitter:image` in `index.html` | Currently both still point to lovable.dev — bad signal | S | **Now** |
+| 3.1 | `satori` + `@resvg/resvg-js` pipeline at `scripts/og/build.mjs` (single default for now; per-slug loop in 3.3) | Branded social preview | M | ✅ Done 2026-04-28 |
+| 3.2 | Bundled Inter Bold TTF at `src/assets/fonts/inter-bold.ttf` (borrowed from calcengine) | Consistent text rendering — resvg can't read system fonts in our docker | S | ✅ Done 2026-04-28 |
+| 3.3 | Per-slug variant: loop over `data.ts`, emit `dist/og/{slug}.png`, per-page `og:image` meta | X/LinkedIn previews vary by page | S | Planned (after M1) |
+| 3.4 | Replace Lovable-default `og:image` / `twitter:image` in `index.html` with `/og-image.png` | Currently both pointed at lovable.dev — bad brand signal | S | ✅ Done 2026-04-28 |
 
 ### M4 — Sitemap, robots, canonical hygiene
 
@@ -167,7 +167,7 @@ Once core pSEO is humming, expand product surface.
 
 Not strictly milestone-by-milestone — pick high-leverage items first:
 
-1. **Now (this sprint):** 3.4 — replace the Lovable-default OG image / twitter:image (still pointing at `lovable.dev/opengraph-image-p98pqg.png`). 4.3 done 2026-04-28.
+1. ~~**Now (this sprint):** 3.4 — replace the Lovable-default OG image / twitter:image.~~ Done 2026-04-28 (M3.1, 3.2, 3.4 all landed via `scripts/og/build.mjs`). M3.3 (per-slug variants) deferred until M1 lands per-route static HTML.
 2. **Sprint 1:** M1 in full. Without static HTML per route nothing in `data.ts` matters.
 3. **Sprint 2:** M2 (JSON-LD) + M4 (sitemap) + M5.1–5.2 (GA4). Search-engine table stakes.
 4. **Sprint 3:** M7 (golden page template) + backfill 10 seed pages. Validate the template ranks.
