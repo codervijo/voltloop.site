@@ -17,10 +17,10 @@ const Index = () => {
           "@context": "https://schema.org",
           "@type": "WebSite",
           name: "Voltloop",
-          url: "https://voltloop.app",
+          url: "https://voltloop.site",
           potentialAction: {
             "@type": "SearchAction",
-            target: "https://voltloop.app/{search_term_string}",
+            target: "https://voltloop.site/{search_term_string}",
             "query-input": "required name=search_term_string",
           },
         }}

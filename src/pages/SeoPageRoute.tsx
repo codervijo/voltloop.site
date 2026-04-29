@@ -48,8 +48,8 @@ const SeoPageRoute = () => {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
       itemListElement: [
-        { "@type": "ListItem", position: 1, name: "Home", item: "https://voltloop.app/" },
-        { "@type": "ListItem", position: 2, name: page.h1, item: `https://voltloop.app/${page.slug}` },
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://voltloop.site/" },
+        { "@type": "ListItem", position: 2, name: page.h1, item: `https://voltloop.site/${page.slug}` },
       ],
     },
   ];
