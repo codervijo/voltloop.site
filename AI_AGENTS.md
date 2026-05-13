@@ -94,3 +94,31 @@ pnpm test:watch
 - **Stack settled:** Vite 6 + React 18 + TypeScript + Tailwind 3 + shadcn/ui + pnpm.
 - **Earlier dead end (do not retry):** Astro + MUI was attempted and abandoned — MUI's `createTheme` crashes under Astro's Vite SSR due to CJS/ESM interop. See `docs/Prompts.md` for the constraints encoded for future sister sites.
 - **Next step:** verify Cloudflare deploys cleanly on the latest commit, then start adding pSEO entries to `src/lib/data.ts`.
+
+## Versioning
+
+This project follows the two-level versioning convention canonical
+to the portfolio (see `sites/portfolio/AI_AGENTS.md` for the full
+statement):
+
+- **`vN`** — major capability tier (SemVer-MAJOR semantics).
+- **`vN.X`** — phase letter within a tier (A, B, C, …) for
+  internal slicing.
+- **`vN.X.Y`** — numeric sub-phase for follow-up work that lands
+  after `vN.X` shipped.
+
+Track current phase + completed work in `docs/prd.md`.
+
+## Building info
+
+This project's `Makefile` forwards every target to `../Makefile`
+(the sites/ workspace) which delegates per-stack work to the central
+builder at `~/work/projects/builder/`. Common: `make deps`, `make dev`,
+`make build`. Don't duplicate build logic per-site.
+
+## Deployment info
+
+Cloudflare Pages. Push to `main` triggers an auto-build via the
+`wrangler.jsonc` config; build output is `dist/`. Custom domain
+configured via the CF Pages dashboard.
+
