@@ -80,8 +80,8 @@ Pre-built PNG per slug at deploy time. Pattern from `calcengine/src/og/renderOg.
 
 | # | Feature | Why | Effort | Status |
 |---|---|---|---|---|
-| 4.1 | Generate `dist/sitemap.xml` at build from route list | Crawl coverage | S | Planned |
-| 4.2 | `dist/robots.txt` with sitemap link | Standard | S | Done (basic) |
+| 4.1 | Generate `dist/sitemap.xml` at build from route list | Crawl coverage | S | ✅ Done 2026-05-18 |
+| 4.2 | `dist/robots.txt` with sitemap link | Standard | S | ✅ Done 2026-05-18 |
 | 4.3 | Per-page canonical points to `https://voltloop.site/...` (was `voltloop.app` in seed) | Avoid SEO split | S | ✅ Done 2026-04-28 |
 | 4.4 | Per-page canonical from route, not hardcoded | Correct dedupe across params | S | Planned |
 

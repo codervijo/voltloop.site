@@ -6,13 +6,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:dev": "vite build --mode development",
+    "build": "node scripts/sitemap/build.mjs && vite build",
+    "build:dev": "node scripts/sitemap/build.mjs && vite build --mode development",
     "lint": "eslint .",
     "preview": "vite preview",
     "test": "vitest run",
     "test:watch": "vitest",
-    "og:build": "node scripts/og/build.mjs"
+    "og:build": "node scripts/og/build.mjs",
+    "sitemap:build": "node scripts/sitemap/build.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
