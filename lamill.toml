@@ -1,0 +1,8 @@
+schema = "lamill-toml-v1"
+
+[deploy]
+platform = "cf-pages"
+production_branch = "main"
+custom_domains = [
+    "voltloop.site",
+]
