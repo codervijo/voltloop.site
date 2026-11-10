@@ -11,6 +11,10 @@ custom_domains = [
     "voltloop.site",
 ]
 
+[index]
+indexnow_key = "f7fc6caed044cb66fe6140397ac0f88f"
+indexnow_enabled = true
+
 [stack]
 framework = "vite-react"
 
